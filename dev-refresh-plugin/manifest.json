@@ -1,0 +1,14 @@
+{
+  "manifest_version": 3,
+  "name": "dev-refresh-plugin",
+  "version": "0.1",
+  "description": "Refresh all dev tabs on a websocket command.",
+  "permissions": ["tabs"],
+  "background": {
+    "service_worker": "src/background/background.js"
+  },
+  "action": {
+    "default_icon": "icons/48.png"
+  },
+  "host_permissions": ["<all_urls>"]
+}
