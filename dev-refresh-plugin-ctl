@@ -1,0 +1,26 @@
+#!/bin/bash
+
+case "$1" in
+  start)
+       pidof dev-refresh-plugin-server || dev-refresh-plugin-server </dev/null &>/dev/null & disown
+       echo ""
+    ;;
+  stop)
+    pkill -f dev-refresh-plugin-server
+       echo ""
+    ;;
+  refresh)
+      dev-refresh-plugin-server refresh
+    ;;
+  status)
+    if pidof dev-refresh-plugin-server &> /dev/null; then
+      echo "running"
+    else
+      echo "stoped"
+  fi
+    ;;
+ *)
+  # else
+  echo "Usage: (start|stop|status|refresh)"
+  ;;
+esac
