@@ -9,12 +9,12 @@ So I ended with a simple browser extension and a simple websocket server.
 The browser extension automatically connects to the websocket server and waits for a refresh command. Which I can simply send from the command line while switching workspaces. It works great.
 
 ## Websocket server
-Its written in Go and listens on a local IP. I did not use a websocket library with complex features, instead I wrote my own with only what I needed.
+It's written in Go and listens on a local IP. I did not use a websocket library with complex features, instead, I wrote my own with only what I needed.
 
 ## Browser extension
-Its a chromium extension that connects to the server and waits. On failure or closed connection it automatically reconnects. And there is an icon with a connection indicator, so I know if it's connected or not.
+It's a chromium extension that connects to the server and waits. On failure or closed connection, it automatically reconnects. And there is an icon with a connection indicator, so I know if it's connected or not.
 
-### Instalation:
+### Installation:
 1. Open chromium
 2. Go to `chrome://extensions/`
 3. Enable "Developer mode"
