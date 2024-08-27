@@ -11,6 +11,7 @@ import (
 	"os"
 	"strings"
 	"syscall"
+    "time"
 )
 
 func wsKeyFromRequest(request string) string {
@@ -140,8 +141,13 @@ func readPipe() {
 	}
 	reader := bufio.NewReader(file)
 	for {
+	    if(len(clients)==0){
+            time.Sleep(5 * time.Second)
+            continue
+        }
 		line, err := reader.ReadBytes('\n')
 		if len(line) == 0 {
+		    time.Sleep(500 * time.Millisecond)
 			continue
 		}
 		if err == nil {
@@ -159,6 +165,9 @@ func readPipe() {
 }
 
 func processArgs() bool{
+
+
+
     if(len(os.Args)>1){
         if(os.Args[1] == "refresh"){
             writePipe()
